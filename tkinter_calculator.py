@@ -33,7 +33,11 @@ def equal():
     n1 = number.get()
     list.append(n1)
     count = len(list)
-    ans = eval(list[count-1])
+    try:
+        ans = eval(list[count-1])
+    except SyntaxError:
+        ans = ""
+        list.clear()
     e1.delete(0, END)
     e1.insert(END, ans)
 
